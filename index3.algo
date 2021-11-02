@@ -1,0 +1,48 @@
+PROCEDURE dot_product(VAR v1,v2:ARRAY_OF INREGER [] , VAR ps:INREGER :=0)
+VAR
+    i : INREGER ;
+BEGIN
+   IF (v1.length == v2.length && v1.length<>0) THEN
+      FOR i FROM 0 TO v1.length STEP step  DO
+          ps=ps+v1[i]*v2[i] ;
+      END_FOR
+      IF (ps==0) THEN
+          write(" vecteurs orthogonaux")
+      END_IF
+    ELSE write ("verifier les vecteurs")  
+   END_IF
+
+END
+FUNCTION dot_product (VAR v1,v2:ARRAY_OF INREGER [] ) : INREGER
+VAR
+    i,ps:INREGER;
+BEGIN
+     IF (v1.length == v2.length && v1.length<>0) THEN
+      FOR i FROM 0 TO v1.length STEP step  DO
+          ps=ps+v1[i]*v2[i] ;
+      END_FOR
+     END_IF
+    RETURN ps;
+END
+// algo utilise procedure
+ALGORITHM produits_scalaires
+VAR 
+v1,v2:ARRAY_OF INTEGER[];
+ps:INTEGER :=0;
+BEGIN
+Read(v1);
+Read(v2);
+dot_product(v1,v2,ps);
+
+END
+// algo utilise fonction
+ALGORITHM produits_scalaires
+VAR 
+v1,v2:ARRAY_OF INTEGER[];
+ps:INTEGER ;
+BEGIN
+Read(v1);
+Read(v2);
+ps:=dot_product(v1,v2);
+
+END

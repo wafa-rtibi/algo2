@@ -1,4 +1,4 @@
-PROCEDURE dot_product(VAR v1,v2:ARRAY_OF INREGER [] , VAR ps:INREGER :=0)
+PROCEDURE dot_product(VAR v1,v2:ARRAY_OF INREGER [] , VAR *ps:INREGER)
 VAR
     i : INREGER ;
 BEGIN
@@ -32,7 +32,7 @@ ps:INTEGER :=0;
 BEGIN
 Read(v1);
 Read(v2);
-dot_product(v1,v2,ps);
+dot_product(v1,v2,*ps);
 
 END
 // algo utilise fonction
